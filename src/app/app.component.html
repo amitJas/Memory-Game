@@ -1,7 +1,7 @@
 <main fxLayout="row" >
   <app-card class='card'
   *ngFor=' let card of cards' 
-  (click)='logic($event,card) '
+  (click)='gameLogic(card) '
   [ngStyle]="{'background-color': card.side ? 'green' : 'red'}"> 
 </app-card>   
 </main>
