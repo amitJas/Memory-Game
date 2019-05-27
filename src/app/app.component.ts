@@ -1,4 +1,4 @@
-import { Component ,NgZone } from '@angular/core';
+import { Component} from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -20,7 +20,7 @@ export class AppComponent {
   public first = null 
   public second = null      
   
-  constructor(private zone:NgZone ){}
+  constructor(){}
   
   gameLogic(card){
 
