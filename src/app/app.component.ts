@@ -17,12 +17,11 @@ export class AppComponent {
 
 
   public countEvent = 0
-  public first = null 
-  public second = null      
+  public first = null     
   public disable = true  // use to disadel click event until finish 
  
   gameLogic(card){
-    
+
     if(!card.side || !this.disable){ //check card side
       if(this.countEvent == 0){ // first card
         this.first = card
