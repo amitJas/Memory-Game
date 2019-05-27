@@ -1,4 +1,4 @@
-import { Component} from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -19,33 +19,38 @@ export class AppComponent {
   public countEvent = 0
   public first = null 
   public second = null      
-  
-  constructor(){}
-  
+  public disable = true  // use to disadel click event until finish 
+ 
   gameLogic(card){
+    
+    if(!card.side || !this.disable){ //check card side
+      if(this.countEvent == 0){ // first card
+        this.first = card
+        this.first.side = true
+        this.countEvent++
 
-  this.countEvent++;
+      }else if(this.countEvent == 1){ //second card
+        this.disable = false
+        card.side = true
 
-  if(this.countEvent == 1 && card.bingo != true  ){ // first carde chosen
-    console.log('in')
-    this.first = card;
-    this.first.side = true
-  }
-    if(this.countEvent == 2 && card.bingo != true ){ //second card chosen
-      this.second = card;
-      this.second.side = true
+        if(this.first.shape == card.shape ){//match
+          this.first.bingo = true
+          card.bingo = true
+          this.countEvent = 0
+          this.disable = true
 
-      if(this.first.shape == this.second.shape){ // we have bingo 
-        this.first.bingo == true
-        this.second.dingo ==  true
-        this.countEvent = 0
-      }else{
+        }else{ // no match
           setTimeout(() => {
-            this.second.side = false 
             this.first.side = false
+            card.side = false
             this.countEvent = 0
-          }, 500);
+            this.disable = true
+          }, 700);
+        }
       }
     }
   }
 }
+
+
+
