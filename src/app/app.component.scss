@@ -15,10 +15,6 @@ main{
 .card{
     width: 100px;
     height: 120px;
-    //background-color: rgb(127, 104, 233);
     margin-left: 15px;
     display:  inline-block; /* the default for span */
 }
-// [class.cardDown]='!card.side'
-//   [class.cardUp]='card.side'
-//[ngClass]="{'cardDown':!card.side }"

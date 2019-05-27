@@ -10,7 +10,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CardComponent implements OnInit {
 
- // public color = 0
   constructor(public app: AppComponent) { }
 
   ngOnInit() {
